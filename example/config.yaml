@@ -1,0 +1,6 @@
+###
+str: value from yaml
+bool: true
+int: 3
+struct:
+  inner: inner value from yaml

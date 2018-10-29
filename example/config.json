@@ -1,0 +1,8 @@
+{
+  "str": "value from json",
+  "bool": false,
+  "int": 2,
+  "struct": {
+    "inner": "inner value from json"
+  }
+}
