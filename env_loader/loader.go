@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"reflect"
+	"strings"
 
 	"github.com/ekharchenko-avito/configLoader/config_loader"
 	"github.com/ekharchenko-avito/configLoader/hydration_utils"
@@ -26,7 +27,11 @@ func (l *Loader) makeProceedVal() hydration_utils.ProceedNode {
 		if tag == "" {
 			return nil
 		}
-		val, present := os.LookupEnv(context + tag)
+		envVar := context + tag
+		if strings.HasPrefix(tag, "!") {
+			envVar = tag[1:]
+		}
+		val, present := os.LookupEnv(envVar)
 		if !present {
 			return nil
 		}

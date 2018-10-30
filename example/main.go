@@ -18,6 +18,9 @@ func main() {
 		ParamInt     int       `json:"int" yaml:"int" env:"INT" arg:"int,i,integer param"`
 		ParamStruct  ConfigSub `json:"struct" yaml:"struct" env:"STRUCT_" arg:"struct"`
 		Param2Struct ConfigSub `json:"struct2" yaml:"struct2" env:"STRUCT2_" arg:"struct2" required:"false"`
+		ParamEnvEx   struct {
+			SubParam string `env:"!FORCE_SUB"`
+		} `env:"ENV_EX_"`
 	}
 
 	conf := &Config{
